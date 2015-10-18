@@ -8,6 +8,7 @@ $red: #E93F33;
 $blue: #1070D8;
 $blue__light: #9DD2FB;
 $orange: #F99E3C;
+$green: #8BB91F;
 
 @import 'pod-styles';
 
@@ -21,10 +22,10 @@ body {
 }
 
 .button {
-  @include rem(font-size, 1.8);
+  @include rem(font-size, 1.4);
   @include rem(padding, 0.8, 1.5);
   background-color: white;
-  @include rem(border-radius, 0.4);
+  @include rem(border-radius, 0.3);
   text-transform: inherit;
   letter-spacing: inherit;
   font-weight: 700;

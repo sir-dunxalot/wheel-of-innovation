@@ -7,7 +7,10 @@ export default Ember.Component.extend({
   classNameBindings: ['currentCategoryClass'],
   currentCategory: null,
   isSpinning: false,
-  lengthofSpin: 7000,
+  lengthOfSpin: 7000,
+
+  drumroll: new Audio('assets/drumroll.mp3'),
+  fanfare: new Audio('assets/fanfare.mp3'),
 
   _previousName: null,
 
@@ -24,7 +27,8 @@ export default Ember.Component.extend({
   actions: {
     spin() {
       const _this = this;
-      const lengthofSpin = this.get('lengthofSpin');
+      const lengthOfSpin = this.get('lengthOfSpin');
+      const drumrollStartTime = lengthOfSpin - 4300;
 
       let delay = 50;
 
@@ -47,15 +51,21 @@ export default Ember.Component.extend({
       changeCategory.call(this);
 
       run.later(_this, function() {
+        _this.get('drumroll').play();
+      }, drumrollStartTime);
+
+      run.later(_this, function() {
         if (!_this.get('isDestroying')) {
           _this.set('isSpinning', false);
+          _this.get('fanfare').play();
           // _this.renderConfetti();
         }
-      }, lengthofSpin);
+      }, lengthOfSpin);
     }
   },
 
   changeCategory() {
+    const click = new Audio('assets/click.mp3');
     const categories = this.get('categories');
     const categoriesLength = categories.get('length');
     const previousName = this.get('_previousName');
@@ -73,7 +83,14 @@ export default Ember.Component.extend({
       }
     }
 
-    this.set('currentCategory', getRandomCategory());
+    const category = getRandomCategory();
+
+    click.play();
+
+    this.setProperties({
+      _previousName: category.get('name'),
+      currentCategory: category,
+    });
   },
 
   renderConfetti() {
