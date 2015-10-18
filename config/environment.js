@@ -3,6 +3,7 @@
 module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'wheel-of-innovation',
+    podModulePrefix: 'wheel-of-innovation/pods',
     environment: environment,
     baseURL: '/',
     locationType: 'auto',
@@ -16,7 +17,14 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
-    }
+    },
+
+    contentSecurityPolicy: {
+      'font-src': "'self' https://fonts.gstatic.com https://s3.amazonaws.com",
+      'img-src': "'self' https://*.githubusercontent.com",
+      'script-src': "'self' 'unsafe-eval' 'unsafe-inline'",
+      'style-src': "'self' 'unsafe-inline' https://s3.amazonaws.com https://fonts.googleapis.com",
+    },
   };
 
   if (environment === 'development') {
