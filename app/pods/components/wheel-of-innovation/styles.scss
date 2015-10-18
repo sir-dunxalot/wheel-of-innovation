@@ -1,0 +1,49 @@
+& {
+  background-color: #666;
+  @extend %full-height__viewport;
+  @extend %full-width__viewport;
+
+  @include rem(letter-spacing, 0.1);
+  text-transform: uppercase;
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wheel-content {
+  @extend %align__center;
+}
+
+&.category__mobile {
+  // @include background-image(linear-gradient(-180deg, $blue, $blue__light));
+  background-color: $violet;
+}
+
+&.category__video {
+  // @include background-image(linear-gradient(-180deg, $yellow, $yellow__dark));
+  background-color: $orange;
+}
+
+&.category__mystery-category {
+  // @include background-image(linear-gradient(-180deg, $violet, $red));
+  background-color: $red;
+}
+
+.confetti {
+  @extend %full-height__viewport;
+  @extend %full-width__viewport;
+}
+
+.category-list {
+  @include rem(font-size, 1.8);
+  @extend %no-margin;
+  @extend %align__center;
+}
+
+.category-name {
+  @extend %no-margin;
+  @include rem(font-size, 6);
+  font-weight: 700;
+}

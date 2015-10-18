@@ -1,7 +1,22 @@
-{{#if isSpinning}}
-  {{currentCategory.name}}
-{{else}}
-  <button {{action 'spin'}}>
-    Spin
-  </button>
-{{/if}}
+{{!-- <canvas id="confetti" class="confetti" width="1" height="1"></canvas> --}}
+
+<div class="wheel-content">
+  <dl class="category-list">
+    <dt class="{{unless hasResult 'hidden'}}">Your category</dt>
+    <dd class="category-name">{{currentCategory.name}}</dd>
+  </dl>
+
+  {{#if hasResult}}
+    <hr class="hr">
+  {{/if}}
+
+  {{#unless isSpinning}}
+    <button {{action 'spin'}} class="button">
+      Spin
+
+      {{#if hasResult}}
+        &nbsp;again
+      {{/if}}
+    </button>
+  {{/unless}}
+</div>

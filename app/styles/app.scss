@@ -1,0 +1,38 @@
+@import 'compass-boilerplate';
+
+$violet: #B144B5;
+$purple: #753EC2;
+$yellow: #FFE752;
+$yellow__dark: #B38A22;
+$red: #E93F33;
+$blue: #1070D8;
+$blue__light: #9DD2FB;
+$orange: #F99E3C;
+
+@import 'pod-styles';
+
+body {
+  @extend %no-margin;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.hidden {
+  @extend %temporarily-hidden;
+}
+
+.button {
+  @include rem(font-size, 1.8);
+  @include rem(padding, 0.8, 1.5);
+  background-color: white;
+  @include rem(border-radius, 0.4);
+  text-transform: inherit;
+  letter-spacing: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+}
+
+.hr {
+  border-color: white;
+  @include rem(margin, 1, 0, 3);
+}
