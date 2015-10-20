@@ -2,6 +2,8 @@
   background-color: #333;
   @extend %full-height__viewport;
   @extend %full-width__viewport;
+  @extend %border-box;
+  @include rem(padding, 5);
 
   @include rem(letter-spacing, 0.1);
   text-transform: uppercase;
@@ -16,11 +18,11 @@
   @extend %align__center;
 }
 
-&.category__mobile {
+&.category__mobile-content-and-questions {
   background-color: $violet;
 }
 
-&.category__video {
+&.category__features-for-video {
   background-color: $orange;
 }
 
@@ -35,6 +37,15 @@
 &.category__data-we-could-gather {
   background-color: $green;
 }
+
+&.category__find-an-unknown-integration {
+  background-color: $purple;
+}
+
+&.category__things-to-do-in-emails {
+  background-color: $yellow__dark;
+}
+
 
 .confetti {
   @extend %full-height__viewport;

@@ -13,11 +13,13 @@ export default Ember.Route.extend({
 
   model() {
     return Ember.A([
-      this.createItem('Mobile'),
-      this.createItem('Video'),
+      this.createItem('Mobile content and questions'),
+      this.createItem('Features for video'),
       this.createItem('Mystery category'),
       this.createItem('Hook Mechanisms'),
       this.createItem('Data we could gather'),
+      this.createItem('Find an unknown integration'),
+      this.createItem('Things to do in emails'),
     ]);
   },
 
